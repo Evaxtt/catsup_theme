@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% from 'utils.html' import render_comment, meta %}
+
+{% block title %}
+Tags | {{ site.name }}
+{% endblock %}
+
+{% block content %}
+<article class="post-main" id="post-font">
+<h1> ●ω●  [{{ tags | list | length }}] Tags：</h1>
+<table class="am-table">
+  <tbody>
+    {% for i in range(0,36,6) %}
+    <tr>
+      {% for tag in (tags | list)[i:i+6] %}
+      <td class="am-success"><a href="{{ url_for(tag) }}">{{ tag.name }}</a></td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</article>
+{% endblock %}

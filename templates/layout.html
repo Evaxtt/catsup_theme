@@ -1,0 +1,113 @@
+{% from "utils.html" import analytics %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css">
+  <link rel="stylesheet" href="{{ static_url("css/style.css") }}" type="text/css" />
+  <link rel="stylesheet" href="{{ static_url("css/pygments_style.css") }}" type="text/css" />
+
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?7a7d4c2736963f63925bf3b3091085c4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- header-->
+    <header class="header-wrapper">
+      <div class="header-container">
+        <nav>
+          <ul class="header-nav">
+            <li><a href="http://xuting.me/"><span class="am-icon-sm am-icon-home" id="nav-icon"></span>Home</a></li>
+            <!--<li><a href="http://xuting.me/Board/"><span class="am-icon-sm am-icon-heart" id="nav-icon"></span>Board</a></li>-->
+            <li><a href="{{ url_for("archives") }}"><span class="am-icon-sm am-icon-archive" id="nav-icon"></span>Archives</a></li>
+            <li><a href="http://xuting.me/AboutMe/"><span class="am-icon-sm am-icon-user-secret" id="nav-icon"></span>AboutMe</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- header -->
+
+    <!-- conetent -->
+    <div class="content-wrapper">
+      <div class="am-g am-g-fixed blog-g-fixed">
+        <div class="am-u-md-9">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+        <div class="sidebar">
+          <div class="am-u-md-3">
+            <!-- about me -->
+            <div class="panel about-me">
+              <div class="about-me-bg"></div>
+              <div class="about-me-content">
+                <a href="http://xuting.me"><img class="avatar" src="http://7xpt78.com1.z0.glb.clouddn.com/tt.jpg"></img></a>
+                <h5 class="about-me-name"><a href="http://xuting.me/AboutMe/"> Evaxtt </a></h5>
+                <p class="about-me-words">9岁的技术媛</p>
+                <ul class="about-me-ul">
+                  <li class="about-me-li">
+                    <a class="about-me-li-content" href="{{ url_for("archives") }}">
+                      日志
+                      <h5 class="about-me-li-h5">5</h5>
+                    </a>
+                  </li>
+                  <li class="about-me-li">
+                    <a class="about-me-li-content" href="{{ url_for("tags") }}">
+                      标签
+                      <h5 class="about-me-li-h5">5</h5>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- about me -->
+            <!-- contact-me -->
+            <div class="contact-me panel-two">
+              <h3 class="panel-title">Follow Me</h5>
+              <div class="contact-me-icons">
+                <a href="https://github.com/Evaxtt" title="Github: Evaxtt" target="_blank"><i class="am-icon-github am-icon-md"></i></a>
+                <!--<a href="https://twitter.com/Eva_studying" title="Twitter: xuting.me" target="_blank"><i class="am-icon-twitter am-icon-md"></i></a>-->
+                <a href="http://weibo.com/2946291917/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="Weibo: 一只水饺" target="_blank"><i class="am-icon-weibo am-icon-md"></i></a>
+                <a href="https://www.zhihu.com/people/xu-ting-ting-62-33" title="zhihu" target="_blank"><i class="am-icon-share-alt am-icon-md"></i></a>
+                </a> 
+              </div>
+            </div>
+            <!-- contact-me-->
+            <!-- email-me -->
+            <div class="panel-two">
+              <h3 class="panel-title">Contact Me</h5>
+              <img src="http://7xpt78.com1.z0.glb.clouddn.com/mail%E5%89%AF%E6%9C%AC.png">
+            </div>
+            <!-- email-me-->
+            <!-- recently -->
+            <div class="shuoshuo panel-two">
+              <h5 class="panel-title">博主说说</h5>
+              <div class="shuoshuo-content">
+                坚持学习，坚持锻炼。
+              </div>
+            </div>
+            <!-- recently -->
+            <div class="about-copyright panel-two">
+            ©Powered by<a href="https://github.com/whtsky/Catsup"> Catsup</a>and<a href="https://http://pages.github.com/"> Github Pages </a>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- conetent -->
+  </div>
+<!--<script src="blog_files/amazeui.js"></script>
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+-->
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Archives | {{ site.name }}
+{% endblock %}
+
+{% block content %}
+{% for archive in archives %}
+<article class="post-main" id="post-font">
+<h1>{{ archive.year }}</h1>
+<ol>
+  {% for post in archive.posts %}
+  <li>
+    <span class="meta">{{ post.date }}</span>
+    <a href="{{ url_for(post) }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ol>
+</article>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ tag.name }} | {{ site.name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ tag.name }} 标签下的文章</h1>
+<!-- blog list -->
+<div class="blog-list">
+  <!--样本 开始-->
+  {% for post in posts %}
+  <article class="blog-main">
+    <span class="round-date">
+      <span class="month">{{ (post.datetime|string)[5:7] }}月</span>
+      <span class="day">{{ (post.datetime|string)[8:10] }}</span>
+    </span>
+    <header class="blog-header">
+      <p class="blog-title">
+        <a href="{{ url_for(post) }}">{{ post.title }}</a>
+      </p>
+      <p class="blog-meta">
+        <i class="am-icon-calendar"></i> 发表于 {{ post.datetime.strftime("%b %d, %Y") }} • 
+        <!--<i class="am-icon-binoculars"></i> 87 次围观 • -->
+        <!--<i class="am-icon-bookmark"></i> 0条评论-->
+        {% for tag in post.tags %}
+        <a class="am-badge am-badge-primary am-radius" href="{{ url_for(tag) }}">{{ tag.name }}</a>
+        {% endfor %}
+      </p>
+    </header>
+    <section class="blog-content">
+      {{ post.content[0:100] }}
+    </section>
+    <a class="am-badge am-badge-secondary am-radius blog-content-more" href="{{ url_for(post) }}">阅读全文</a>
+  </article>
+  {% endfor %}
+  <!--样本 结束-->
+</div>
+<!-- blog list -->
+{% endblock %}
